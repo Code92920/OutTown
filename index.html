@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Out Town RP | أوت تاون حياة واقعية</title>
+<title>OUT TOWN RP</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
-
 body{
 font-family:'Tajawal',sans-serif;
 background:#000;
@@ -19,201 +17,160 @@ scroll-behavior:smooth;
 overflow-x:hidden;
 }
 
-/* الخلفية الجديدة */
-.hero-bg{
+/* خلفية احترافية */
+.hero{
 background:
 linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
 url('https://i.imgur.com/q44uDY8.png');
 background-size:cover;
 background-position:center;
-background-attachment:fixed;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
-/* ألوان الموقع */
-.red-gradient{
-background:linear-gradient(90deg,#ff0000,#990000);
-}
-
-.glass{
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,0,0,0.2);
-}
-
-/* أنميشن زر */
-.btn-animated{
+/* تأثير زر احترافي */
+.btn{
 position:relative;
 overflow:hidden;
-transition:0.3s ease;
+transition:.3s;
 }
 
-.btn-animated:active{
-transform:scale(0.95);
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(255,0,0,0.4);
 }
 
-.btn-animated::after{
-content:"";
-position:absolute;
-width:0;
-height:0;
-border-radius:50%;
-background:rgba(255,255,255,0.3);
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-transition:0.5s;
+.btn:active{
+transform:scale(.95);
 }
 
-.btn-animated:active::after{
-width:300px;
-height:300px;
+/* سكروول أنميشن */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
 }
 
-/* أكوردين */
-.accordion-item{
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* كارد */
+.card{
 background:#111;
 border:1px solid #222;
-border-radius:12px;
-margin-bottom:12px;
-overflow:hidden;
-transition:0.3s;
+padding:30px;
+border-radius:20px;
+transition:.4s;
 }
 
-.accordion-header{
-padding:18px;
-cursor:pointer;
-display:flex;
-justify-content:space-between;
-font-weight:700;
-}
-
-.accordion-content{
-max-height:0;
-overflow:hidden;
-transition:0.4s ease;
-padding:0 18px;
-color:#ccc;
-}
-
-.active .accordion-content{
-max-height:300px;
-padding:18px;
-border-top:1px solid #222;
-}
-
-.active .fa-plus{
-transform:rotate(45deg);
-color:#ff0000;
+.card:hover{
+border-color:#ff0000;
+transform:translateY(-10px);
 }
 </style>
 </head>
 
 <body>
 
-<nav class="fixed w-full z-50 bg-black/90 border-b border-red-900 py-4 px-8 flex justify-between items-center">
+<!-- Navbar -->
+<nav class="fixed w-full bg-black/90 border-b border-red-900 p-5 flex justify-between items-center z-50">
 <div class="text-2xl font-black italic">
-<span class="text-red-600">OUT</span> TOWN
+<span style="color:#ff0000;">OUT</span> TOWN
 </div>
 
 <a href="https://discord.gg/ot-c"
 target="_blank"
-class="red-gradient px-6 py-2 rounded-lg font-bold btn-animated">
+class="bg-red-600 px-6 py-2 rounded-lg font-bold btn">
 دخول الديسكورد
 </a>
 </nav>
 
-<section class="hero-bg h-screen flex flex-col justify-center items-center text-center px-6">
-
-<h1 class="text-6xl md:text-8xl font-black italic mb-6">
+<!-- Hero -->
+<section class="hero">
+<h1 class="text-6xl md:text-8xl font-black mb-6 italic fade">
 OUT TOWN RP
 </h1>
 
-<p class="max-w-2xl text-lg mb-10 text-gray-200">
+<p class="max-w-2xl text-lg mb-10 text-gray-300 fade">
 أفضل تجربة رول بلاي عربية في روبلوكس 🔥  
-أنظمة واقعية – رقابة 24/7 – مجتمع محترف
+أنظمة متطورة – رقابة احترافية – مجتمع قوي
 </p>
 
-<a href="#rules"
-class="bg-red-600 px-12 py-4 rounded-xl font-black btn-animated">
-عرض القوانين
+<a href="#systems"
+class="bg-red-600 px-10 py-4 rounded-xl font-black btn fade">
+استكشف الأنظمة
 </a>
-
 </section>
 
-<section id="rules" class="py-24 px-6 bg-black">
-
-<h2 class="text-4xl font-black text-center mb-12 text-red-600">
-قوانين الرول بلاي
+<!-- Systems -->
+<section id="systems" class="py-24 px-6 text-center">
+<h2 class="text-4xl font-black mb-16 text-red-600 fade">
+أنظمة السيرفر
 </h2>
 
-<div class="max-w-3xl mx-auto">
+<div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-<div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">
-<span>1 – منع القتل العشوائي (RDM)</span>
-<i class="fas fa-plus"></i>
-</div>
-<div class="accordion-content">
-يُمنع القتل بدون سبب رول بلاي واضح أو سيناريو مسبق.
-</div>
+<div class="card fade">
+<h3 class="text-xl font-bold mb-4">نظام الشرطة</h3>
+<p class="text-gray-400">
+رتب – مهام – مطاردات واقعية – أنظمة قبض احترافية.
+</p>
 </div>
 
-<div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">
-<span>2 – منع الدهس العشوائي (VDM)</span>
-<i class="fas fa-plus"></i>
-</div>
-<div class="accordion-content">
-يُمنع استخدام المركبة كسلاح بدون سبب منطقي.
-</div>
+<div class="card fade">
+<h3 class="text-xl font-bold mb-4">نظام العصابات</h3>
+<p class="text-gray-400">
+سرقات – اشتباكات – سيطرة مناطق – سيناريوهات متكاملة.
+</p>
 </div>
 
-<div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">
-<span>3 – قانون الحياة الجديدة (NLR)</span>
-<i class="fas fa-plus"></i>
-</div>
-<div class="accordion-content">
-بعد الموت يجب نسيان جميع الأحداث السابقة وعدم العودة للانتقام.
-</div>
-</div>
-
-<div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">
-<span>4 – الخروج عن الشخصية</span>
-<i class="fas fa-plus"></i>
-</div>
-<div class="accordion-content">
-يُمنع كسر الرول بلاي أو ذكر أمور خارج اللعبة أثناء السيناريو.
-</div>
-</div>
-
-<div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">
-<span>5 – المناطق الآمنة</span>
-<i class="fas fa-plus"></i>
-</div>
-<div class="accordion-content">
-يُمنع إطلاق النار أو الاعتداء داخل المناطق الآمنة مثل المستشفى والمقرات الرسمية.
-</div>
+<div class="card fade">
+<h3 class="text-xl font-bold mb-4">نظام الاقتصاد</h3>
+<p class="text-gray-400">
+وظائف – تجارة – استثمارات – رواتب حقيقية.
+</p>
 </div>
 
 </div>
 </section>
 
-<footer class="py-10 text-center border-t border-red-900 bg-black">
+<!-- Rules -->
+<section class="py-24 px-6 bg-black text-center">
+<h2 class="text-4xl font-black mb-10 text-red-600 fade">
+قوانين مختصرة
+</h2>
+
+<p class="max-w-3xl mx-auto text-gray-400 fade">
+يُمنع القتل العشوائي – يمنع الدهس – يمنع كسر الرول بلاي –
+يجب الالتزام بقانون الحياة الجديدة – يمنع استغلال الثغرات.
+</p>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 text-center border-t border-red-900 bg-black">
 <h2 class="text-2xl font-black text-red-600 italic">OUT TOWN RP</h2>
 <p class="text-gray-600 text-sm">© 2026 All Rights Reserved</p>
 </footer>
 
 <script>
-function toggleAccordion(element){
-const item=element.parentElement;
-const isActive=item.classList.contains("active");
-document.querySelectorAll(".accordion-item")
-.forEach(el=>el.classList.remove("active"));
-if(!isActive) item.classList.add("active");
+/* سكروول أنميشن */
+const faders=document.querySelectorAll('.fade');
+
+window.addEventListener('scroll',()=>{
+faders.forEach(el=>{
+const rect=el.getBoundingClientRect().top;
+if(rect<window.innerHeight-100){
+el.classList.add('show');
 }
+});
+});
 </script>
 
 </body>
