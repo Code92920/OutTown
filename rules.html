@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>قوانين Frost Life</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="snow"></div>
+
+<nav>
+<div class="logo">❄ Frost Life</div>
+<div>
+<a href="index.html">الرئيسية</a>
+<a href="rules.html">القوانين</a>
+</div>
+</nav>
+
+<div class="container">
+<h1 style="text-align:center;margin-bottom:40px;">قوانين الرول بلاي</h1>
+
+<div class="accordion">PowerGaming - الباور قيمينج</div>
+<div class="panel">
+استغلال أشياء غير واقعية أو فرض أفعال غير منطقية على لاعب آخر بدون إعطائه فرصة للرد.
+</div>
+
+<div class="accordion">MetaGaming - الميتا قيمينج</div>
+<div class="panel">
+استخدام معلومات خارج اللعبة داخل الرول بلاي.
+</div>
+
+<div class="accordion">RDM - القتل العشوائي</div>
+<div class="panel">
+قتل لاعب بدون سبب أو سيناريو واضح.
+</div>
+
+<div class="accordion">VDM - الدهس العشوائي</div>
+<div class="panel">
+دهس اللاعبين بالمركبة بدون سبب RP.
+</div>
+
+<div class="accordion">Fail RP</div>
+<div class="panel">
+القيام بتصرفات غير واقعية أو كسر السيناريو.
+</div>
+
+<h1 style="text-align:center;margin:50px 0 40px;">قوانين الدسكورد</h1>
+
+<div class="accordion">الاحترام</div>
+<div class="panel">
+يمنع السب أو الشتم أو التقليل من الآخرين.
+</div>
+
+<div class="accordion">منع السبام</div>
+<div class="panel">
+يمنع تكرار الرسائل أو الإزعاج.
+</div>
+
+<div class="accordion">المحتوى المخالف</div>
+<div class="panel">
+يمنع نشر محتوى غير لائق أو روابط مشبوهة.
+</div>
+
+</div>
+
+<footer>
+© 2026 Frost Life
+</footer>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+for (var i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
