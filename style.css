@@ -1,0 +1,108 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Tahoma', sans-serif;
+}
+
+body{
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* الثلج */
+.snow{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    background: url('https://i.ibb.co/Vg0s6qf/snow.png');
+    animation: snow 20s linear infinite;
+    opacity:0.4;
+}
+
+@keyframes snow{
+    0%{background-position:0 0;}
+    100%{background-position:0 1000px;}
+}
+
+/* النافبار */
+nav{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#00cfff;
+}
+
+.logo{
+    font-size:22px;
+}
+
+/* القسم الرئيسي */
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:60px;
+    text-shadow:0 0 20px #00cfff;
+}
+
+.hero p{
+    max-width:700px;
+    margin-top:20px;
+    line-height:1.8;
+}
+
+/* القوانين */
+.container{
+    padding:80px 20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.accordion{
+    background: rgba(255,255,255,0.1);
+    padding:15px;
+    margin-bottom:10px;
+    cursor:pointer;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.accordion:hover{
+    background:#00cfff;
+}
+
+.panel{
+    display:none;
+    padding:15px;
+    background:rgba(255,255,255,0.05);
+    margin-bottom:10px;
+    border-radius:8px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111;
+}
