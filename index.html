@@ -43,24 +43,24 @@
             gap: 8px;
         }
 
-        /* تنسيق بطاقات المؤسسين بناءً على الصورة المرفقة */
+        /* تنسيق بطاقات المؤسسين المحدث */
         .founder-card {
             background: #1a1a3a;
             border-radius: 20px;
             padding: 40px 20px;
             text-align: center;
             transition: 0.3s;
-            border: 1px solid rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.2);
         }
-        .founder-card:hover { transform: translateY(-10px); background: #23234d; }
+        .founder-card:hover { transform: translateY(-10px); background: #23234d; box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2); }
         
         .avatar-wrapper {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             margin: 0 auto 20px;
             border-radius: 50%;
             padding: 5px;
-            background: linear-gradient(45deg, #00d2ff, #8b5cf6);
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
             position: relative;
         }
         .avatar-wrapper img {
@@ -71,15 +71,17 @@
             border: 4px solid #1a1a3a;
         }
 
-        /* Accordion Style */
-        .accordion-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(0, 210, 255, 0.1); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
-        .accordion-header { padding: 18px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; }
-        .accordion-content { max-height: 0; padding: 0 25px; transition: all 0.4s ease-in-out; color: #cbd5e1; overflow: hidden; line-height: 1.6; }
+        .accordion-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(0, 210, 255, 0.1); border-radius: 12px; margin-bottom: 12px; overflow: hidden; transition: 0.3s; }
+        .accordion-item:hover { border-color: #00d2ff; background: rgba(0, 210, 255, 0.05); }
+        .accordion-header { padding: 18px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; font-size: 1rem; }
+        .accordion-content { max-height: 0; padding: 0 25px; transition: all 0.4s ease-in-out; color: #cbd5e1; font-size: 0.95rem; overflow: hidden; line-height: 1.6; }
         .active .accordion-content { max-height: 500px; padding: 20px 25px; border-top: 1px solid rgba(0, 210, 255, 0.1); }
         .active .fa-plus { transform: rotate(45deg); color: #00d2ff; }
 
         .content-z { position: relative; z-index: 2; }
-        .section-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem; text-align: center; font-style: italic; }
+        
+        .section-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem; text-align: center; font-style: italic; text-transform: uppercase; }
+        .rule-category-title { color: #00d2ff; font-weight: 900; margin: 2rem 0 1.5rem 0; font-size: 1.5rem; border-right: 4px solid #00d2ff; padding-right: 15px; }
     </style>
 </head>
 <body>
@@ -100,77 +102,95 @@
             <div class="maintenance-tag mb-6 uppercase">Under Maintenance | قيد الصيانة</div>
             <h1 class="text-6xl md:text-[110px] font-black mb-4 tracking-tighter italic leading-none">FROST LIFE</h1>
             <p class="text-cyan-400 font-black text-sm md:text-lg mb-8 tracking-[0.2em] uppercase">المجتمع الأقوى للحياة الواقعية في روبلوكس</p>
+            
+            <div class="max-w-2xl glass p-8 rounded-2xl mb-10">
+                <p class="text-slate-200 font-bold leading-relaxed">
+                    سيرفر فروست لايف يهدف لتقديم تجربة فريدة، نركز على الاحترافية والعدالة وبناء مجتمع مترابط. السيرفر حالياً تحت الصيانة لتجهيز أفضل الأنظمة لكم.
+                </p>
+            </div>
+
             <div class="flex flex-col md:flex-row gap-4">
-                <a href="#rules" class="bg-white text-blue-900 px-12 py-4 rounded-xl font-black uppercase text-sm shadow-xl">دستور السيرفر</a>
+                <a href="#rules" class="bg-white text-blue-900 px-12 py-4 rounded-xl font-black uppercase text-sm hover:scale-105 transition-all shadow-xl">دستور السيرفر</a>
+                <a href="https://discord.gg/3d6DfHhMz" target="_blank" class="glass text-white px-12 py-4 rounded-xl font-black uppercase text-sm border border-cyan-400/30 hover:bg-cyan-400/10 transition-all">الدعم الفني</a>
             </div>
         </section>
 
-        <section id="founders" class="py-24 px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="section-title text-cyan-400">نخبة الإدارة</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="founder-card">
-                        <div class="avatar-wrapper">
-                            <img src="https://cdn.discordapp.com/avatars/1004268108044836914/a_66f81e695f2e6e300d863e46c76191c9.gif?size=256" alt="Husam">
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-2">حسام</h3>
-                        <p class="text-cyan-400 text-sm font-bold uppercase mb-4 tracking-widest">الاونر وشيب و مبرمج الماب</p>
-                        <a href="https://discord.com/users/1004268108044836914" target="_blank" class="text-xs text-slate-500 hover:text-white transition">Discord Profile</a>
+        <section id="founders" class="py-20 px-6 bg-[#000814]/50">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                <a href="https://discord.com/users/1004268108044836914" target="_blank" class="founder-card block">
+                    <div class="avatar-wrapper">
+                        <img src="https://cdn.discordapp.com/avatars/1004268108044836914/a_66f81e695f2e6e300d863e46c76191c9.gif?size=256" alt="Husam">
                     </div>
-
-                    <div class="founder-card">
-                        <div class="avatar-wrapper">
-                            <img src="https://cdn.discordapp.com/avatars/1445170812352204941/a_8e3647f26d7f57339d3780361234567.png?size=256" onerror="this.src='https://i.imgur.com/6VBx3io.png'" alt="Abu Shadow">
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-2">أبو شادو</h3>
-                        <p class="text-cyan-400 text-sm font-bold uppercase mb-4 tracking-widest">المؤسس الثاني ومطور الديسكورد</p>
-                        <a href="https://discord.com/users/1445170812352204941" target="_blank" class="text-xs text-slate-500 hover:text-white transition">Discord Profile</a>
-                    </div>
-
-                    <div class="founder-card opacity-70">
-                        <div class="avatar-wrapper" style="background: #475569;">
-                            <img src="https://cdn.discordapp.com/avatars/1150438087118307368/a_d1e2f3c4b5a6978123456789.png?size=256" onerror="this.src='https://i.imgur.com/6VBx3io.png'" alt="Jordanian">
-                        </div>
-                        <h3 class="text-2xl font-black text-slate-300 mb-2">أردني كح</h3>
-                        <p class="text-slate-500 text-sm font-bold uppercase mb-4 tracking-widest">المؤسس السابق (إدارة سابقة)</p>
-                        <a href="https://discord.com/users/1150438087118307368" target="_blank" class="text-xs text-slate-600 hover:text-white transition">Discord Profile</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="rules" class="py-24 px-6 bg-black/20">
-            <div class="max-w-4xl mx-auto text-right">
-                <h2 class="section-title text-center text-white">دستور <span class="text-cyan-400">فروست لايف</span></h2>
+                    <h3 class="text-2xl font-black text-cyan-400 mb-2">حسام</h3>
+                    <p class="text-sm text-slate-400 font-bold">الاونر ومبرمج الماب الوحيد</p>
+                </a>
                 
-                <h3 class="text-cyan-400 font-black mb-6 text-xl border-r-4 border-cyan-400 pr-4">قوانين الرول بلاي</h3>
+                <a href="https://discord.com/users/1445170812352204941" target="_blank" class="founder-card block">
+                    <div class="avatar-wrapper">
+                        <img src="https://i.imgur.com/jAelfkH.jpeg" alt="Abu Shadow">
+                    </div>
+                    <h3 class="text-2xl font-black text-cyan-400 mb-2">ابو شادو</h3>
+                    <p class="text-sm text-slate-400 font-bold">المؤسس الثاني ومطور الديسكورد</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="rules" class="py-24 px-6">
+            <div class="max-w-4xl mx-auto text-right">
+                <h2 class="section-title text-center"><span class="text-cyan-400">📜</span> قوانين فروست لايف</h2>
+                
+                <div class="rule-category-title">قوانين الرول بلاي</div>
                 <div class="accordion mb-12">
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>الالتزام بالشخصية (IC)</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>1 – الالتزام بالشخصية (IC)</span><i class="fas fa-plus text-cyan-400"></i></div>
                         <div class="accordion-content">لازم تلتزم بدورك وقصة شخصيتك. ممنوع تسوي أشياء غير منطقية على حسب وضعك (مثلاً مدني يتصرف كقائد عصابة فجأة بدون قصة).</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>الميتا قيمنق (Meta Gaming)</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>2 – الميتا قيمنق (Meta Gaming)</span><i class="fas fa-plus text-cyan-400"></i></div>
                         <div class="accordion-content">ممنوع تستخدم معلومات عرفتها خارج الرول بلاي داخل اللعبة. مثال: تشوف بث أو تسمع شخص بديسكورد وتستفيد منها داخل RP.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>الباور قيمنق (Power Gaming)</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>3 – الباور قيمنق (Power Gaming)</span><i class="fas fa-plus text-cyan-400"></i></div>
                         <div class="accordion-content">ممنوع تجبر لاعب على فعل بدون ما تعطيه فرصة يتفاعل. مثال: تقول "أكبلك وأخطفك وما تقدر تتحرك" بدون ما تعطيه فرصة رد.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>الفير آر بي (Fear RP)</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>4 – الفير آر بي (Fear RP)</span><i class="fas fa-plus text-cyan-400"></i></div>
                         <div class="accordion-content">لازم تمثل الخوف إذا انحط عليك سلاح أو كنت بموقف خطر. ممنوع تتصرف كأنك سوبرمان.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>5 – منع العشوائية (RDM / VDM)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-content">ممنوع القتل أو الدعس أو الاعتداء بدون سبب منطقي داخل الرول بلاي. أي تصعيد لازم يكون له سبب واضح وقصة.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>6 – السيناريوهات الواقعية</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-content">أي جريمة أو مشكلة لازم تكون لها قصة وأسباب. ممنوع تسوي سرقات أو إطلاق نار بدون تمهيد.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>7 – تقدير الحياة (Value of Life)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-content">حياتك لها قيمة، لا تضحي فيها بدون سبب منطقي. إذا كنت بموقف خطير حاول تحافظ على حياتك.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>8 – الإصابات (New Life Rule)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-content">إذا ماتت شخصيتك تنسى آخر الأحداث اللي صارت لك قبل موتك. ما ترجع تنتقم مباشرة بعد ما تموت.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>9 – الاحترام العام</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-content">احترام جميع اللاعبين والإدارة. ممنوع السب أو التقليل خارج إطار الرول بلاي.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>10 – استغلال الثغرات</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-content">يمنع استغلال أي قلتش أو خطأ باللعبة. أي استغلال يعرضك للعقوبة المباشرة.</div>
                     </div>
                 </div>
 
-                <h3 class="text-cyan-400 font-black mb-6 text-xl border-r-4 border-cyan-400 pr-4">قوانين الديسكورد</h3>
+                <div class="rule-category-title">قوانين الديسكورد</div>
                 <div class="accordion">
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>الاحترام المتبادل</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>الاحترام العام</span><i class="fas fa-plus text-cyan-400"></i></div>
                         <div class="accordion-content">الاحترام واجب بين جميع الأعضاء، ويمنع السب أو الشتم أو العنصرية أو التقليل من أي شخص.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>منع السبام</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>منع السبام</span><i class="fas fa-plus text-cyan-400"></i></div>
                         <div class="accordion-content">يمنع السبام بجميع أنواعه سواء تكرار رسائل أو إيموجيات أو منشن مزعج.</div>
                     </div>
                 </div>
@@ -183,25 +203,41 @@
     </div>
 
     <script>
-        // أنميشن الثلج
         const canvas = document.getElementById('snow-canvas');
         const ctx = canvas.getContext('2d');
         let width, height, snowflakes;
+
         function init() {
-            width = window.innerWidth; height = window.innerHeight;
-            canvas.width = width; canvas.height = height;
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
             snowflakes = [];
-            for (let i = 0; i < 120; i++) snowflakes.push({ x: Math.random() * width, y: Math.random() * height, r: Math.random() * 3 + 1, d: Math.random() * 0.5 + 0.3 });
+            for (let i = 0; i < 120; i++) {
+                snowflakes.push({ x: Math.random() * width, y: Math.random() * height, r: Math.random() * 3 + 1, d: Math.random() * 0.5 + 0.3 });
+            }
         }
+
         function draw() {
-            ctx.clearRect(0, 0, width, height); ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'; ctx.beginPath();
-            for (let f of snowflakes) { ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true); }
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.beginPath();
+            for (let f of snowflakes) {
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+            }
             ctx.fill();
-            for (let f of snowflakes) { f.y += f.d; f.x += Math.sin(f.y / 40); if (f.y > height) f.y = -10; }
+            for (let f of snowflakes) {
+                f.y += f.d;
+                f.x += Math.sin(f.y / 40);
+                if (f.y > height) f.y = -10;
+            }
             requestAnimationFrame(draw);
         }
+
         window.addEventListener('resize', init);
-        init(); draw();
+        init();
+        draw();
 
         function toggleAccordion(element) {
             const item = element.parentElement;
