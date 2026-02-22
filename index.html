@@ -3,189 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Out Town RP | أوت تاون حياة واقعية</title>
+    <title>Frost Life RP | فروست لايف حياة واقعية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
-        body { font-family: 'Tajawal', sans-serif; background-color: #050505; color: white; scroll-behavior: smooth; overflow-x: hidden; }
         
-        .hero-bg { 
-            background: linear-gradient(rgba(10, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), 
-            url('https://i.imgur.com/QlbAHU1.png'); 
-            background-size: cover; background-position: center; background-attachment: fixed;
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            background-color: #000b18; 
+            color: white; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
         }
 
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05); }
-        .red-gradient { background: linear-gradient(90deg, #ff0000 0%, #8b0000 100%); }
-        
-        .status-dot { height: 8px; width: 8px; background-color: #10b981; border-radius: 50%; display: inline-block; margin-left: 8px; box-shadow: 0 0 10px #10b981; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        /* خلفية ثلجية */
+        .hero-bg { 
+            background: linear-gradient(rgba(0, 11, 24, 0.7), rgba(0, 11, 24, 0.9)), 
+            url('https://images.unsplash.com/photo-1483354483454-4cd359948304?auto=format&fit=crop&q=80&w=2070'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed;
+        }
 
-        /* تنسيق القوانين المنسدلة */
-        .accordion-item { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
-        .accordion-header { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; }
-        .accordion-content { max-height: 0; padding: 0 25px; transition: all 0.4s ease-in-out; color: #aaa; font-size: 0.95rem; overflow: hidden; background: rgba(0,0,0,0.1); }
-        .active .accordion-content { max-height: 300px; padding: 20px 25px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
-        .active .fa-plus { transform: rotate(45deg); color: #ff0000; }
-
-        .music-player { position: fixed; bottom: 20px; left: 20px; z-index: 100; background: rgba(0,0,0,0.85); padding: 10px 18px; border-radius: 50px; border: 1px solid #ff0000; display: flex; align-items: center; gap: 10px; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .blue-gradient { background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%); }
         
-        .creator-card { background: #0a0a0a; border-radius: 20px; padding: 30px 20px; transition: 0.4s; text-align: center; border: 1px solid rgba(255,255,255,0.03); width: 280px; display: inline-block; }
-        .creator-card:hover { transform: translateY(-10px); border-color: #6366f1; }
-        .creator-img-wrap { width: 110px; height: 110px; margin: 0 auto 15px; border-radius: 50%; border: 3px solid #6366f1; padding: 4px; display: flex; align-items: center; justify-content: center; background: #111; }
-        .creator-img-wrap img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        /* أنميشن الثلج المتساقط */
+        #snow-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .maintenance-tag {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid #ffc107;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .accordion-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(58, 123, 213, 0.2); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+        .accordion-header { padding: 18px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; transition: 0.3s; }
+        .accordion-header:hover { background: rgba(58, 123, 213, 0.1); }
+        .accordion-content { max-height: 0; padding: 0 25px; transition: all 0.4s ease-in-out; color: #cbd5e1; font-size: 0.95rem; overflow: hidden; }
+        .active .accordion-content { max-height: 300px; padding: 20px 25px; border-top: 1px solid rgba(58, 123, 213, 0.2); }
+        .active .fa-chevron-down { transform: rotate(180deg); color: #00d2ff; }
+
+        .content-z { position: relative; z-index: 2; }
     </style>
 </head>
 <body>
 
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
-    </audio>
+    <canvas id="snow-canvas"></canvas>
 
-    <div class="music-player shadow-2xl">
-        <button onclick="toggleMusic()" id="musicBtn" class="text-white hover:text-red-500 transition">
-            <i class="fas fa-play" id="musicIcon"></i>
-        </button>
-        <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Background Music</span>
+    <div class="content-z">
+        <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
+            <div class="flex flex-col">
+                <div class="text-xl md:text-2xl font-black italic uppercase leading-none">
+                    FROST <span class="text-cyan-400">LIFE</span>
+                </div>
+                <div class="flex items-center mt-1">
+                    <span class="maintenance-tag">قيد الصيانة <i class="fas fa-tools"></i></span>
+                </div>
+            </div>
+            <div class="hidden md:flex gap-8 font-bold text-[10px] uppercase tracking-widest">
+                <a href="#rules" class="hover:text-cyan-400 transition">القوانين</a>
+                <a href="#about" class="hover:text-cyan-400 transition">عن فروست</a>
+            </div>
+            <a href="https://discord.gg/3d6DfHhMz" target="_blank" class="blue-gradient px-6 py-2 rounded-lg font-black text-xs uppercase shadow-lg shadow-cyan-500/20">دخول الديسكورد</a>
+        </nav>
+
+        <section class="hero-bg h-screen flex flex-col justify-center items-center text-center px-6">
+            <div class="text-cyan-400 text-[10px] font-black px-4 py-1 rounded-full mb-6 tracking-[0.3em] uppercase border border-cyan-400/30 bg-cyan-400/10">WINTER IS COMING</div>
+            <h1 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter uppercase italic text-white drop-shadow-2xl">FROST LIFE</h1>
+            <div class="max-w-2xl text-slate-200 text-lg md:text-xl font-bold mb-10 leading-relaxed">
+                تجربة الحياة الواقعية في أبرد بقاع الأرض. عالم متجمد مليء بالتحديات والأنظمة الفريدة. السيرفر حالياً يخضع لأعمال تطوير لضمان أفضل تجربة لكم.
+            </div>
+            <div class="flex flex-col md:flex-row gap-4">
+                <a href="#rules" class="bg-white text-blue-900 px-12 py-4 rounded-xl font-black uppercase text-sm hover:scale-105 transition-all shadow-xl">قوانين البرد</a>
+                <a href="https://discord.gg/3d6DfHhMz" target="_blank" class="glass text-white px-12 py-4 rounded-xl font-black uppercase text-sm border border-cyan-400/30 hover:bg-cyan-400/10 transition-all">تحديثات الصيانة</a>
+            </div>
+        </section>
+
+        <section id="rules" class="py-24 px-6 bg-[#000b18]">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-black mb-4 text-center italic text-white uppercase">دستور <span class="text-cyan-400">فروست لايف</span></h2>
+                <p class="text-center text-slate-400 mb-12">التزامك بالقوانين يضمن لك ولغيرك تجربة رول بلاي ممتعة</p>
+                
+                <div class="accordion text-right">
+                    <h3 class="text-cyan-400 font-bold mb-4 mr-2">قوانين الرول بلاي (Roleplay)</h3>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>1 – القتل العشوائي (RDM)</span><i class="fas fa-chevron-down text-xs"></i></div>
+                        <div class="accordion-content">يمنع منعاً باتاً قتل أي مواطن دون سبب مقنع أو تفاعل مسبق. يجب أن يكون هناك سيناريو رول بلاي يؤدي لهذا الفعل.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>2 – الخوف على الحياة (Fear RP)</span><i class="fas fa-chevron-down text-xs"></i></div>
+                        <div class="accordion-content">يجب عليك تمثيل الخوف إذا تعرضت لتهديد مباشر بسلاح. حياتك في السيرفر ثمينة، تصرف وكأنها حياتك الحقيقية.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>3 – الخروج عن الشخصية (Fail RP)</span><i class="fas fa-chevron-down text-xs"></i></div>
+                        <div class="accordion-content">يمنع التحدث عن أمور خارج اللعبة (OOC) داخل الرول بلاي، أو ذكر مصطلحات مثل "برمجيات" أو "إدارة" أثناء السيناريو.</div>
+                    </div>
+
+                    <h3 class="text-cyan-400 font-bold mt-8 mb-4 mr-2">قوانين السيرفر العامة</h3>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>1 – الاحترام المتبادل</span><i class="fas fa-chevron-down text-xs"></i></div>
+                        <div class="accordion-content">يمنع السب، القذف، أو التنمر على أي عضو داخل السيرفر سواء في الديسكورد أو اللعبة. الاحترام هو أساس مجتمع فروست لايف.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>2 – استغلال الثغرات (Glitches)</span><i class="fas fa-chevron-down text-xs"></i></div>
+                        <div class="accordion-content">أي محاولة لاستغلال ثغرة برمجية في اللعبة بدلاً من الإبلاغ عنها ستعرضك للنفي النهائي من السيرفر.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>3 – الأسماء المستعارة</span><i class="fas fa-chevron-down text-xs"></i></div>
+                        <div class="accordion-content">يجب أن يكون اسم الشخصية بالكامل واقعياً وغير مستفز، ويمنع استخدام أسماء المشاهير أو الشخصيات السياسية.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-12 text-center border-t border-white/5 bg-[#000811]">
+            <h2 class="text-2xl font-black text-cyan-400 italic">FROST LIFE | CFW</h2>
+            <p class="text-slate-500 text-[9px] uppercase font-bold tracking-widest mt-2">© 2026 Frost Life Roleplay | Under Maintenance</p>
+        </footer>
     </div>
 
-    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center border-b border-white/5">
-        <div class="flex flex-col">
-            <div class="text-xl md:text-2xl font-black italic uppercase leading-none">
-                <span class="text-red-600">OUT</span> TOWN
-            </div>
-            <div class="flex items-center mt-1">
-                <span class="status-dot"></span>
-                <span class="text-[9px] font-bold text-emerald-500 uppercase tracking-widest">Server Online</span>
-            </div>
-        </div>
-        <div class="hidden md:flex gap-8 font-bold text-[10px] uppercase tracking-[0.2em]">
-            <a href="#rules-rp" class="hover:text-red-500 transition">القوانين</a>
-            <a href="#creators" class="hover:text-red-500 transition">صناع المحتوى</a>
-            <a href="#apply" class="hover:text-red-500 transition">تقديم الوظائف</a>
-        </div>
-        <a href="https://discord.gg/ot-c" onclick="sendLog('دخول الديسكورد')" target="_blank" class="red-gradient px-6 py-2 rounded-lg font-black text-xs uppercase shadow-lg shadow-red-600/20">دخول الديسكورد</a>
-    </nav>
-
-    <section class="hero-bg h-screen flex flex-col justify-center items-center text-center px-6">
-        <div class="bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-full mb-6 tracking-[0.2em] uppercase shadow-xl">ROBLOX ROLEPLAY SERVER</div>
-        <h1 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter uppercase italic">OUT TOWN | CFW</h1>
-        <div class="max-w-2xl text-gray-200 text-lg md:text-xl font-bold mb-10 leading-relaxed">
-            مرحباً بك في بيتك الثاني. نقدم لك أفضل جودة من عالم الرول بلاي المتطور في روبلوكس، بأنظمة واقعية ورقابة مستمرة 24/7.
-        </div>
-        <div class="flex flex-col md:flex-row gap-4">
-            <a href="#rules-rp" class="bg-white text-black px-12 py-4 rounded-xl font-black uppercase text-sm hover:scale-105 transition-all shadow-xl">دستور المدينة</a>
-            <a href="https://discord.gg/ot-c" onclick="sendLog('استكشاف الأنظمة')" target="_blank" class="glass text-white px-12 py-4 rounded-xl font-black uppercase text-sm border border-white/10 hover:bg-white/5 transition-all">استكشف الأنظمة</a>
-        </div>
-    </section>
-
-    <section id="rules-rp" class="py-24 px-6 bg-[#030303]">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-black mb-12 text-center italic text-white uppercase tracking-tighter underline decoration-red-600 underline-offset-8">قوانين الرول بلاي</h2>
-            
-            <div class="accordion text-right">
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this); sendLog('قراءة: RDM')"><span>1 – RDM (القتل العشوائي)</span><i class="fas fa-plus"></i></div>
-                    <div class="accordion-content">يُمنع القتل بدون سبب رول بلاي واضح أو تفاعل مسبق. أي إطلاق نار أو دهس أو قتل بدون تهديد أو سيناريو يُعد مخالفة.</div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this); sendLog('قراءة: VDM')"><span>2 – VDM (الدهس العشوائي)</span><i class="fas fa-plus"></i></div>
-                    <div class="accordion-content">يُمنع استخدام المركبة كسلاح. الدهس المتعمد بدون سبب رول بلاي مخالف للقوانين.</div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this); sendLog('قراءة: NLR')"><span>3 – NLR (قانون الحياة الجديدة)</span><i class="fas fa-plus"></i></div>
-                    <div class="accordion-content">بعد الموت يجب نسيان جميع الأحداث السابقة. يُمنع الرجوع لموقع الحادث أو الانتقام.</div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this); sendLog('قراءة: الخروج عن الشخصية')"><span>15 – Character Breaking</span><i class="fas fa-plus"></i></div>
-                    <div class="accordion-content">يُمنع الخروج عن الشخصية أو ذكر أمور إدارية داخل الرول بلاي.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="creators" class="py-24 px-6 text-center">
-        <h2 class="text-4xl font-black mb-16 italic text-white uppercase tracking-tighter">صناع المحتوى</h2>
-        <div class="flex flex-wrap justify-center gap-10">
-            <a href="https://www.tiktok.com/@rt_ahm1" onclick="sendLog('زيارة تيك توك JZ')" target="_blank" class="creator-card">
-                <div class="creator-img-wrap"><img src="https://i.imgur.com/IBUay75.png"></div>
-                <span class="text-white font-black block text-xl">JZ</span>
-                <span class="text-[#6366f1] text-[10px] font-bold uppercase">Tiktok Creator</span>
-            </a>
-            <a href="https://youtube.com/@ot_cfw" onclick="sendLog('زيارة يوتيوب Cfw')" target="_blank" class="creator-card">
-                <div class="creator-img-wrap"><img src="https://i.imgur.com/S4idDOM.jpeg"></div>
-                <span class="text-white font-black block text-xl">OutTown | Cfw</span>
-                <span class="text-[#6366f1] text-[10px] font-bold uppercase">YouTube Channel</span>
-            </a>
-        </div>
-    </section>
-
-    <section id="apply" class="py-24 px-6 max-w-7xl mx-auto text-center">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-10 rounded-3xl border-t-4 border-blue-600 transition-all hover:-translate-y-2">
-                <h3 class="font-bold mb-6">جهاز الشرطة</h3>
-                <a href="https://discord.gg/ot-c" onclick="sendLog('فتح تقديم الشرطة')" target="_blank" class="block py-3 bg-blue-600 rounded-xl font-black text-xs uppercase">تقديم الآن</a>
-            </div>
-            <div class="glass p-10 rounded-3xl border-t-4 border-red-600 transition-all hover:-translate-y-2">
-                <h3 class="font-bold mb-6">وزارة الصحة</h3>
-                <a href="https://discord.gg/ot-c" onclick="sendLog('فتح تقديم الصحة')" target="_blank" class="block py-3 bg-red-600 rounded-xl font-black text-xs uppercase">تقديم الآن</a>
-            </div>
-            <div class="glass p-10 rounded-3xl border-t-4 border-pink-600 transition-all hover:-translate-y-2">
-                <h3 class="font-bold mb-6">صناع المحتوى</h3>
-                <a href="https://discord.gg/ot-c" onclick="sendLog('فتح تقديم الميديا')" target="_blank" class="block py-3 bg-pink-600 rounded-xl font-black text-xs uppercase">تقديم الآن</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center border-t border-white/5 bg-[#030303]">
-        <h2 class="text-2xl font-black text-red-600 italic">OUT TOWN | CFW</h2>
-        <p class="text-gray-700 text-[9px] uppercase font-bold tracking-widest">© 2026 Out Town Roleplay | All Rights Reserved</p>
-    </footer>
-
     <script>
-        const webhookURL = "https://discord.com/api/webhooks/1465355357130981559/FIXxxvmagj3kWC4S7-oHZLI_j9t57btHEMqWHOWTY5RIO9856zDA84TcGid2OBNwhx7R";
+        // أنميشن الثلج
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, snowflakes;
 
-        async function sendLog(action) {
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: "لوق موقع أوت تاون",
-                    avatar_url: "https://i.imgur.com/QlbAHU1.png",
-                    embeds: [{
-                        title: "🔔 تنبيه نشاط",
-                        description: `**الإجراء:** ${action}`,
-                        color: 16711680,
-                        fields: [
-                            { name: "📱 الجهاز:", value: navigator.userAgent.includes("Mobi") ? "جوال" : "كمبيوتر", inline: true },
-                            { name: "⏰ الوقت:", value: new Date().toLocaleString('ar-SA'), inline: true }
-                        ]
-                    }]
-                })
-            }).catch(e => console.error(e));
+        function init() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            snowflakes = [];
+            for (let i = 0; i < 150; i++) {
+                snowflakes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 3 + 1,
+                    d: Math.random() * 1
+                });
+            }
         }
 
-        window.onload = () => { sendLog("دخل المواطن للواجهة الرئيسية 🟢"); };
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.beginPath();
+            for (let i = 0; i < snowflakes.length; i++) {
+                const f = snowflakes[i];
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            update();
+        }
 
+        function update() {
+            for (let i = 0; i < snowflakes.length; i++) {
+                const f = snowflakes[i];
+                f.y += Math.pow(f.d, 2) + 1;
+                f.x += Math.sin(f.y / 50);
+                if (f.y > height) {
+                    snowflakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d };
+                }
+            }
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        setInterval(draw, 33);
+
+        // التحكم في المنسدلات
         function toggleAccordion(element) {
             const item = element.parentElement;
             const isActive = item.classList.contains('active');
             document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
             if (!isActive) item.classList.add('active');
-        }
-
-        const audio = document.getElementById('bgMusic');
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                document.getElementById('musicIcon').classList.replace('fa-play', 'fa-pause');
-                sendLog("تشغيل الموسيقى 🎵");
-            } else {
-                audio.pause();
-                document.getElementById('musicIcon').classList.replace('fa-pause', 'fa-play');
-                sendLog("إيقاف الموسيقى 🔇");
-            }
         }
     </script>
 </body>
