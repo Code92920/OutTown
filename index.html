@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Out Town Cfw | أوت تاون </title>
+    <title>Out Town RP | أوت تاون روبلوكس</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -11,14 +11,14 @@
         
         body { 
             font-family: 'Tajawal', sans-serif; 
-            background-color: #000814; 
+            background-color: #050000; 
             color: white; 
             scroll-behavior: smooth; 
             overflow-x: hidden;
         }
 
         .hero-bg { 
-            background: linear-gradient(rgba(0, 10, 20, 0.6), rgba(0, 5, 10, 0.85)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(20, 0, 0, 0.9)), 
             url('https://i.imgur.com/yiPV7Ba.png'); 
             background-size: cover; 
             background-position: center; 
@@ -26,22 +26,21 @@
             min-height: 100vh;
         }
 
-        /* تنسيق الشعار الرئيسي ليكون متناسباً */
         .main-logo {
             max-width: 500px;
             width: 85%;
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.2));
+            filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.4));
         }
 
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(0, 210, 255, 0.2); }
-        .blue-gradient { background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%); }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(220, 38, 38, 0.2); }
+        .red-gradient { background: linear-gradient(90deg, #b91c1c 0%, #7f1d1d 100%); }
 
         .maintenance-tag {
-            background: rgba(0, 210, 255, 0.1);
-            color: #00d2ff;
-            border: 1px solid #00d2ff;
+            background: rgba(220, 38, 38, 0.1);
+            color: #ef4444;
+            border: 1px solid #ef4444;
             padding: 4px 15px;
             border-radius: 8px;
             font-size: 11px;
@@ -52,14 +51,14 @@
         }
 
         .founder-card {
-            background: #1a1a3a;
+            background: #0f0000;
             border-radius: 20px;
             padding: 40px 20px;
             text-align: center;
             transition: 0.3s;
-            border: 1px solid rgba(0, 210, 255, 0.2);
+            border: 1px solid rgba(220, 38, 38, 0.2);
         }
-        .founder-card:hover { transform: translateY(-10px); background: #23234d; box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2); }
+        .founder-card:hover { transform: translateY(-10px); background: #1a0000; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3); border-color: #ef4444; }
         
         .avatar-wrapper {
             width: 130px;
@@ -67,7 +66,7 @@
             margin: 0 auto 20px;
             border-radius: 50%;
             padding: 5px;
-            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            background: linear-gradient(45deg, #ef4444, #7f1d1d);
             position: relative;
         }
         .avatar-wrapper img {
@@ -75,32 +74,34 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #1a1a3a;
+            border: 4px solid #0f0000;
         }
 
-        .accordion-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(0, 210, 255, 0.1); border-radius: 12px; margin-bottom: 12px; overflow: hidden; transition: 0.3s; }
-        .accordion-item:hover { border-color: #00d2ff; background: rgba(0, 210, 255, 0.05); }
+        .accordion-item { background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(220, 38, 38, 0.1); border-radius: 12px; margin-bottom: 12px; overflow: hidden; transition: 0.3s; }
+        .accordion-item:hover { border-color: #ef4444; background: rgba(220, 38, 38, 0.05); }
         .accordion-header { padding: 18px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; font-size: 1rem; }
-        .accordion-content { max-height: 0; padding: 0 25px; transition: all 0.4s ease-in-out; color: #cbd5e1; font-size: 0.95rem; overflow: hidden; line-height: 1.6; }
-        .active .accordion-content { max-height: 500px; padding: 20px 25px; border-top: 1px solid rgba(0, 210, 255, 0.1); }
-        .active .fa-plus { transform: rotate(45deg); color: #00d2ff; }
+        .accordion-content { max-height: 0; padding: 0 25px; transition: all 0.4s ease-in-out; color: #fca5a5; font-size: 0.95rem; overflow: hidden; line-height: 1.6; }
+        .active .accordion-content { max-height: 500px; padding: 20px 25px; border-top: 1px solid rgba(220, 38, 38, 0.1); }
+        .active .fa-plus { transform: rotate(45deg); color: #ef4444; }
 
         .content-z { position: relative; z-index: 2; }
         
         .section-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem; text-align: center; font-style: italic; text-transform: uppercase; }
-        .rule-category-title { color: #00d2ff; font-weight: 900; margin: 2rem 0 1.5rem 0; font-size: 1.5rem; border-right: 4px solid #00d2ff; padding-right: 15px; }
+        .rule-category-title { color: #ef4444; font-weight: 900; margin: 2rem 0 1.5rem 0; font-size: 1.5rem; border-right: 4px solid #ef4444; padding-right: 15px; }
+        
+        .nav-link:hover { color: #ef4444; }
     </style>
 </head>
 <body>
 
     <div class="content-z">
         <nav class="fixed w-full z-50 glass py-5 px-6 md:px-20 flex justify-between items-center">
-            <div class="text-2xl font-black italic uppercase leading-none"><span class="text-cyan-400">OUT</span> TOWN</div>
+            <div class="text-2xl font-black italic uppercase leading-none"><span class="text-red-600">OUT</span> TOWN</div>
             <div class="hidden md:flex gap-10 font-bold text-xs uppercase tracking-widest">
-                <a href="#rules" class="hover:text-cyan-400 transition">القوانين</a>
-                <a href="#founders" class="hover:text-cyan-400 transition">المؤسسين</a>
+                <a href="#rules" class="nav-link transition">القوانين</a>
+                <a href="#founders" class="nav-link transition">المؤسسين</a>
             </div>
-            <a href="https://discord.gg/3d6DfHhMz" target="_blank" class="blue-gradient px-8 py-2 rounded-lg font-black text-xs uppercase shadow-lg shadow-cyan-500/30">ديسكورد</a>
+            <a href="https://discord.gg/3d6DfHhMz" target="_blank" class="red-gradient px-8 py-2 rounded-lg font-black text-xs uppercase shadow-lg shadow-red-900/40">ديسكورد</a>
         </nav>
 
         <section class="hero-bg flex flex-col justify-center items-center text-center px-6 pt-16">
@@ -108,7 +109,7 @@
             
             <img src="https://i.imgur.com/ZiX24pz.png" alt="Out Town Logo" class="main-logo mb-6">
             
-            <p class="text-cyan-400 font-black text-sm md:text-lg mb-8 tracking-[0.2em] uppercase">المجتمع الأقوى للحياة الواقعية في روبلوكس</p>
+            <p class="text-red-500 font-black text-sm md:text-lg mb-8 tracking-[0.2em] uppercase">المجتمع الأقوى للحياة الواقعية في روبلوكس</p>
             
             <div class="max-w-2xl glass p-8 rounded-2xl mb-10">
                 <p class="text-slate-200 font-bold leading-relaxed">
@@ -117,18 +118,18 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-4">
-                <a href="#rules" class="bg-white text-blue-900 px-12 py-4 rounded-xl font-black uppercase text-sm hover:scale-105 transition-all shadow-xl">قوانين المدينة</a>
-                <a href="https://discord.gg/3d6DfHhMz" target="_blank" class="glass text-white px-12 py-4 rounded-xl font-black uppercase text-sm border border-cyan-400/30 hover:bg-cyan-400/10 transition-all">تذاكر الدعم الفني</a>
+                <a href="#rules" class="bg-white text-black px-12 py-4 rounded-xl font-black uppercase text-sm hover:bg-red-600 hover:text-white transition-all shadow-xl">قوانين المدينة</a>
+                <a href="https://discord.gg/3d6DfHhMz" target="_blank" class="glass text-white px-12 py-4 rounded-xl font-black uppercase text-sm border border-red-600/30 hover:bg-red-600/10 transition-all">تذاكر الدعم الفني</a>
             </div>
         </section>
 
-        <section id="founders" class="py-20 px-6 bg-[#000814]/50">
+        <section id="founders" class="py-20 px-6 bg-[#050000]">
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                 <a href="https://discord.com/users/1004268108044836914" target="_blank" class="founder-card block">
                     <div class="avatar-wrapper">
                         <img src="https://i.imgur.com/AzXjU2R.jpeg" alt="Husam">
                     </div>
-                    <h3 class="text-2xl font-black text-cyan-400 mb-2">حسام</h3>
+                    <h3 class="text-2xl font-black text-red-600 mb-2">حسام</h3>
                     <p class="text-sm text-slate-400 font-bold">الاونر ومبرمج الماب الوحيد</p>
                 </a>
                 
@@ -136,7 +137,7 @@
                     <div class="avatar-wrapper">
                         <img src="https://i.imgur.com/jAelfkH.jpeg" alt="Abu Shadow">
                     </div>
-                    <h3 class="text-2xl font-black text-cyan-400 mb-2">ابو شادو</h3>
+                    <h3 class="text-2xl font-black text-red-600 mb-2">ابو شادو</h3>
                     <p class="text-sm text-slate-400 font-bold">المؤسس الثاني ومطور الديسكورد</p>
                 </a>
             </div>
@@ -144,53 +145,49 @@
 
         <section id="rules" class="py-24 px-6">
             <div class="max-w-4xl mx-auto text-right">
-                <h2 class="section-title text-center"><span class="text-cyan-400">📜</span> قوانين أوت تاون</h2>
+                <h2 class="section-title text-center"><span class="text-red-600">📜</span> قوانين أوت تاون</h2>
                 
                 <div class="rule-category-title">قوانين الرول بلاي</div>
                 <div class="accordion mb-12">
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>1 – الالتزام بالشخصية (IC)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>1 – الالتزام بالشخصية (IC)</span><i class="fas fa-plus"></i></div>
                         <div class="accordion-content">لازم تلتزم بدورك وقصة شخصيتك. ممنوع تسوي أشياء غير منطقية على حسب وضعك (مثلاً مدني يتصرف كقائد عصابة فجأة بدون قصة).</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>2 – الميتا قيمنق (Meta Gaming)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>2 – الميتا قيمنق (Meta Gaming)</span><i class="fas fa-plus"></i></div>
                         <div class="accordion-content">ممنوع تستخدم معلومات عرفتها خارج الرول بلاي داخل اللعبة. مثال: تشوف بث أو تسمع شخص بديسكورد وتستفيد منها داخل RP.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>3 – الباور قيمنق (Power Gaming)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>3 – الباور قيمنق (Power Gaming)</span><i class="fas fa-plus"></i></div>
                         <div class="accordion-content">ممنوع تجبر لاعب على فعل بدون ما تعطيه فرصة يتفاعل. مثال: تقول "أكبلك وأخطفك وما تقدر تتحرك" بدون ما تعطيه فرصة رد.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>4 – الفير آر بي (Fear RP)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>4 – الفير آر بي (Fear RP)</span><i class="fas fa-plus"></i></div>
                         <div class="accordion-content">لازم تمثل الخوف إذا انحط عليك سلاح أو كنت بموقف خطر. ممنوع تتصرف كأنك سوبرمان.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>5 – منع العشوائية (RDM / VDM)</span><i class="fas fa-plus text-cyan-400"></i></div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>5 – منع العشوائية (RDM / VDM)</span><i class="fas fa-plus"></i></div>
                         <div class="accordion-content">ممنوع القتل أو الدعس أو الاعتداء بدون سبب منطقي داخل الرول بلاي. أي تصعيد لازم يكون له سبب واضح وقصة.</div>
                     </div>
-                </div>
-
-                <div class="rule-category-title">قوانين الديسكورد</div>
-                <div class="accordion">
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>1 - الاحترام والتعامل</span><i class="fas fa-plus text-cyan-400"></i></div>
-                        <div class="accordion-content">الاحترام واجب بين جميع الأعضاء، ويمنع السب أو الشتم أو العنصرية أو التقليل من أي شخص.</div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>6 – السيناريوهات الواقعية</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-content">أي جريمة أو مشكلة لازم تكون لها قصة وأسباب. ممنوع تسوي سرقات أو إطلاق نار بدون تمهيد.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>2 - منع السبام</span><i class="fas fa-plus text-cyan-400"></i></div>
-                        <div class="accordion-content">يمنع السبام بجميع أنواعه سواء تكرار رسائل أو إيموجيات أو منشن مزعج.</div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>7 – تقدير الحياة (Value of Life)</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-content">حياتك لها قيمة، لا تضحي فيها بدون سبب منطقي. إذا كنت بموقف خطير حاول تحافظ على حياتك.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>3 - موضوع الرومات</span><i class="fas fa-plus text-cyan-400"></i></div>
-                        <div class="accordion-content">الالتزام بموضوع كل روم وعدم الخروج عن محتواه الأساسي.</div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>8 – الإصابات (New Life Rule)</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-content">إذا ماتت شخصيتك تنسى آخر الأحداث اللي صارت لك قبل موتك. ما ترجع تنتقم مباشرة بعد ما تموت.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>4 - المحتوى العام</span><i class="fas fa-plus text-cyan-400"></i></div>
-                        <div class="accordion-content">يمنع نشر أي محتوى إباحي، دموي، أو مخالف لقوانين منصة ديسكورد العامة.</div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>9 – الاحترام العام</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-content">احترام جميع اللاعبين والإدارة. ممنوع السب أو التقليل خارج إطار الرول بلاي.</div>
                     </div>
                     <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>5 - الروابط والإعلانات</span><i class="fas fa-plus text-cyan-400"></i></div>
-                        <div class="accordion-content">يمنع نشر روابط أو إعلانات لسيرفرات أو منصات أخرى بدون إذن مسبق من الإدارة.</div>
+                        <div class="accordion-header" onclick="toggleAccordion(this)"><span>10 – استغلال الثغرات</span><i class="fas fa-plus"></i></div>
+                        <div class="accordion-content">يمنع استغلال أي قلتش أو خطأ باللعبة. أي استغلال يعرضك للعقوبة المباشرة.</div>
                     </div>
                 </div>
             </div>
